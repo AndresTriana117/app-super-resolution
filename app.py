@@ -9,7 +9,8 @@ import pandas as pd
 from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 
-from write_json import write_json
+from streamlit_text_rating.st_text_rater import st_text_rater
+
 
 im = Image.open("icon.ico")
 st.set_page_config(
@@ -17,6 +18,8 @@ st.set_page_config(
     page_icon=im,
     layout="wide",
 )
+
+st.title("Super Resolution App")
 
 image_file = st.file_uploader("Upload Image", type=["png","jpg","jpeg"])
 if image_file is not None:
@@ -94,6 +97,9 @@ if image_file is not None:
         for col in objects.select_dtypes(include=['object']).columns:
             objects[col] = objects[col].astype("str")
         #st.dataframe(objects)
+    
+    for text in ["Do you like the results?"]:
+      response = st_text_rater(text=text)
         
         
   else:

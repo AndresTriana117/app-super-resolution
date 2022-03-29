@@ -6,3 +6,4 @@ streamlit==1.7.0
 face_detection==0.2.2
 opencv-python-headless==4.5.5.64
 streamlit-drawable-canvas==0.8.0
+streamlit-text-rating==0.1.5
