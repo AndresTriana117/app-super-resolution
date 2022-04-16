@@ -64,6 +64,6 @@ def canvas(boxes,img_file):
         drawing_mode=mode,
         key="color_annotation_app",
     )
-    return canvas_result, bg_image 
+    return canvas_result.json_data, bg_image 
 
 

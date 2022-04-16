@@ -32,12 +32,11 @@ if image_file is not None:
   #st.image(img_faces)
 
   if len(boxes) > 0:
-    canvas_result, bg_image  = canvas(boxes,img_file)
-    st.write(canvas_result.json_data)
-    if canvas_result.json_data is not None:
+    canvas_result_json_data, bg_image  = canvas(boxes,img_file)
+    if canvas_result_json_data is not None:
         
-        rst_objects = canvas_result.json_data["objects"]
-        objects = pd.json_normalize(canvas_result.json_data["objects"]) # need to convert obj to str because PyArrow
+        rst_objects = canvas_result_json_data["objects"]
+        objects = pd.json_normalize(canvas_result_json_data["objects"]) # need to convert obj to str because PyArrow
         for rst_objects in rst_objects:
             rts_boxes = [rst_objects['left'],rst_objects['top'],rst_objects['width']+rst_objects['left'],rst_objects['height']+rst_objects['top']]
             #st.write(rts_boxes)
