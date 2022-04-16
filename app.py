@@ -71,8 +71,9 @@ if image_file is not None:
       "Select tool:", ("draw", "move")
     )
     mode = "transform" if tool_mode=="move" else "rect"
-
-    canvas_result = st_canvas(
+    
+    with st.spinner('Wait for it...'):
+      canvas_result = st_canvas(
         fill_color=label_color,
         stroke_width=3,
         stroke_color="#00ff00",
