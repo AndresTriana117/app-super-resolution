@@ -11,6 +11,8 @@ from streamlit_drawable_canvas import st_canvas
 
 from write_json import write_json
 
+container = st.container()
+
 im = Image.open("icon.ico")
 st.set_page_config(
     page_title="SuperResolution",
@@ -69,18 +71,18 @@ if image_file is not None:
       "Select tool:", ("draw", "move")
     )
     mode = "transform" if tool_mode=="move" else "rect"
-
-    canvas_result = st_canvas(
-        fill_color=label_color,
-        stroke_width=3,
-        stroke_color="#00ff00",
-        background_image=bg_image,
-        height=bg_image.height,
-        width=bg_image.width,
-        initial_drawing=saved_state,
-        drawing_mode=mode,
-        key="color_annotation_app",
-    )
+    with st.container():
+      canvas_result = st_canvas(
+          fill_color=label_color,
+          stroke_width=3,
+          stroke_color="#00ff00",
+          background_image=bg_image,
+          height=bg_image.height,
+          width=bg_image.width,
+          initial_drawing=saved_state,
+          drawing_mode=mode,
+          key="color_annotation_app",
+      )
 
     if canvas_result.json_data is not None:
         
