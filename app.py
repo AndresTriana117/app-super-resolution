@@ -86,7 +86,7 @@ if image_file is not None:
         
         rst_objects = canvas_result.json_data["objects"]
         objects = pd.json_normalize(canvas_result.json_data["objects"]) # need to convert obj to str because PyArrow
-        st.write(rst_objects)
+
         #for rst_objects in rst_objects:
           #rts_boxes = [rst_objects['left'],rst_objects['top'],rst_objects['width']+rst_objects['left'],rst_objects['height']+rst_objects['top']]
           #st.write(rts_boxes)
@@ -96,8 +96,9 @@ if image_file is not None:
             #objects[col] = objects[col].astype("str")
         #st.dataframe(objects)
     if st.button('Process'):
-      st.write('Process')
-      st.write(rst_objects)
+      for rst_objects in rst_objects:
+        rts_boxes = [rst_objects['left'],rst_objects['top'],rst_objects['width']+rst_objects['left'],rst_objects['height']+rst_objects['top']]
+        st.image(crop_object(bg_image, rts_boxes))
         
   else:
     st.write("NO PERSON DETECTED")
