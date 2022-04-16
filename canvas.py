@@ -11,7 +11,7 @@ from streamlit_drawable_canvas import st_canvas
 list = []
 filename = 'saved_state.json'
 
-#@st.cache()
+@st.cache(suppress_st_warning=True)
 def canvas(boxes,img_file):
     for boxes in boxes:
         list.append({
