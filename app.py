@@ -33,6 +33,7 @@ if image_file is not None:
 
   if len(boxes) > 0:
     canvas_result_json_data, bg_image  = canvas(boxes,img_file)
+    st.write(canvas_result_json_data)
     if canvas_result_json_data is not None:
         
         rst_objects = canvas_result_json_data["objects"]
