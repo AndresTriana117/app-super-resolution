@@ -92,7 +92,7 @@ if image_file is not None:
         for rst_objects in rst_objects:
           rts_boxes = [rst_objects['left'],rst_objects['top'],rst_objects['width']+rst_objects['left'],rst_objects['height']+rst_objects['top']]
           #st.write(rts_boxes)
-          st.image(crop_object(bg_image, rts_boxes))
+          st.image(crop_object(bg_image, rts_boxes), use_column_width = "auto")
 
         #for col in objects.select_dtypes(include=['object']).columns:
             #objects[col] = objects[col].astype("str")
