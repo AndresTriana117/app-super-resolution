@@ -25,8 +25,9 @@ if image_file is not None:
   save_image(image_file, image_file.name)
 
   img_file = "uploaded_image/" + image_file.name
+  
 else:
-  if st.button("TEST") is not None:
+  if st.button("TEST") is None:
     img_file = "selfie3.jpeg"
   
 [img_faces, num, boxes] = faceDetection(img_file)
