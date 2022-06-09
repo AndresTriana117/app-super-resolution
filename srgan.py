@@ -22,6 +22,8 @@ os.system("pip list")
 #BASICSR_EXT=True 
 """
 #os.system('BASICSR_EXT=True python setup.py develop')
+os.system("pwd")
+os.system("mv basicsr ../home/appuser/venv/lib/python3.8/site-packages")
 from basicsr.utils import imwrite
 
 from gfpgan import GFPGANer

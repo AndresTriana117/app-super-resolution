@@ -9,7 +9,7 @@ import numpy as np
 import os
 
 os.system("pip list")
-os.system("/home/appuser/venv/bin/python -m pip install basicsr")
+#os.system("/home/appuser/venv/bin/python -m pip install basicsr")
 
 from srgan import predictSrgan
 
